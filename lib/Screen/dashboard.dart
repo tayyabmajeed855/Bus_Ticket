@@ -13,6 +13,7 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
+  int i = 0;
   int currentIndex = 0;
 
   final List<Widget> _widgetOptions = <Widget>[
