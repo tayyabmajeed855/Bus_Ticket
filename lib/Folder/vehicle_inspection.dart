@@ -1,4 +1,5 @@
 import 'package:bus_ticket/Folder/pre-inspection.dart';
+import 'package:bus_ticket/Notification/profile_notification.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -37,7 +38,12 @@ class _FolderWidgetState extends State<FolderWidget> {
                     ),
                     IconButton(
                       splashRadius: Material.defaultSplashRadius / 1.5,
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ProfileNotification()));
+                      },
                       icon: const Icon(
                         Icons.notifications,
                         color: Color(0xFFFED32C),

@@ -54,7 +54,9 @@ class _ProfileNotificationState extends State<ProfileNotification> {
             ),
             Expanded(
               child: ListView.builder(
-                itemCount: 4,
+                physics: BouncingScrollPhysics(),
+                padding: EdgeInsets.only(bottom: 10),
+                itemCount: 14,
                 itemBuilder: (context, index) => Container(
                   padding: EdgeInsets.only(left: 20, right: 20),
                   // alignment: Alignment.topLeft,
@@ -75,20 +77,20 @@ class _ProfileNotificationState extends State<ProfileNotification> {
                               child: Text(
                                 "Your appointment request has been accepted.",
                                 style: GoogleFonts.poppins(
-                                  textStyle: TextStyle(
+                                  textStyle: const TextStyle(
                                       color: Color(0xFFFFFFFF), fontSize: 12),
                                 ),
                                 maxLines: 20,
                               ),
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 40,
                           ),
                           Text(
                             "12:00 PM",
                             style: GoogleFonts.poppins(
-                                textStyle: TextStyle(
+                                textStyle: const TextStyle(
                                     color: Color(0xFFA2A2A2), fontSize: 10)),
                           )
                         ],

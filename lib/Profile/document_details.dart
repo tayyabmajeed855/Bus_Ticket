@@ -1,3 +1,4 @@
+import 'package:bus_ticket/Notification/profile_notification.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -19,79 +20,87 @@ class _DocumentDetailsState extends State<DocumentDetails> {
         padding: EdgeInsets.only(top: 42),
         child: Column(
           children: [
-            Container(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  IconButton(
-                    splashRadius: Material.defaultSplashRadius / 1.5,
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    icon: const Icon(
-                      Icons.arrow_back_ios_new,
-                      color: Color(0xFFFED32C),
-                    ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                IconButton(
+                  splashRadius: Material.defaultSplashRadius / 1.5,
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  icon: const Icon(
+                    Icons.arrow_back_ios_new,
+                    color: Color(0xFFFED32C),
                   ),
-                  Text(
-                    "Documents",
-                    style: GoogleFonts.poppins(
-                        textStyle: const TextStyle(
-                      color: Color(0xFFFED32C),
-                      fontWeight: FontWeight.w600,
-                      fontSize: 20,
-                    )),
+                ),
+                Text(
+                  "Documents",
+                  style: GoogleFonts.poppins(
+                      textStyle: const TextStyle(
+                    color: Color(0xFFFED32C),
+                    fontWeight: FontWeight.w600,
+                    fontSize: 20,
+                  )),
+                ),
+                IconButton(
+                  splashRadius: Material.defaultSplashRadius / 1.5,
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ProfileNotification(),
+                      ),
+                    );
+                  },
+                  icon: const Icon(
+                    Icons.notifications,
+                    color: Color(0xFFFED32C),
                   ),
-                  IconButton(
-                    splashRadius: Material.defaultSplashRadius / 1.5,
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.notifications,
-                      color: Color(0xFFFED32C),
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
             Expanded(
               child: ListView.builder(
                   itemCount: 10,
+                  physics: const BouncingScrollPhysics(),
+                  padding: const EdgeInsets.only(left: 20, right: 20),
                   itemBuilder: (context, index) => Container(
                         margin: EdgeInsets.only(
-                          left: 20,
                           bottom: 20,
-                          right: 20,
                         ),
                         height: 68,
                         width: double.infinity,
                         color: Color(0xFF2B3038),
                         child: Container(
-                          padding: EdgeInsets.only(left: 20, bottom: 10),
+                          padding: EdgeInsets.only(left: 20, bottom: 8),
                           child: Row(
                             crossAxisAlignment: CrossAxisAlignment.end,
                             children: [
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    "Document Name",
-                                    style: GoogleFonts.poppins(
-                                        textStyle:
-                                            TextStyle(color: Colors.white),
-                                        fontSize: 14),
-                                  ),
-                                  SizedBox(
-                                    height: 6,
-                                  ),
-                                  Text(
-                                    "08/09/2022",
-                                    style: GoogleFonts.poppins(
-                                        textStyle:
-                                            TextStyle(color: Color(0xFFA2A2A2)),
-                                        fontSize: 10),
-                                  )
-                                ],
+                              Padding(
+                                padding: const EdgeInsets.only(bottom: 6),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Document Name",
+                                      style: GoogleFonts.poppins(
+                                          textStyle:
+                                              TextStyle(color: Colors.white),
+                                          fontSize: 16),
+                                    ),
+                                    SizedBox(
+                                      height: 6,
+                                    ),
+                                    Text(
+                                      "08/09/2022",
+                                      style: GoogleFonts.poppins(
+                                          textStyle: TextStyle(
+                                              color: Color(0xFFA2A2A2)),
+                                          fontSize: 10),
+                                    )
+                                  ],
+                                ),
                               ),
                               Spacer(),
                               InkWell(
@@ -120,29 +129,22 @@ class _DocumentDetailsState extends State<DocumentDetails> {
                                 ),
                               ),
                               Align(
-                                alignment: Alignment.topLeft,
+                                //  alignment: Alignment.topLeft,
+                                alignment: Alignment.topRight,
                                 child: Container(
                                     height: 30,
-                                    width: 36,
+                                    width: 30,
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.only(
-                                          bottomLeft: Radius.circular(25),
+                                          bottomLeft: Radius.circular(60),
                                         ),
                                         color: Color(0xFFC0C1C4)),
-                                    child: Center(
-                                      child: Text(
-                                        String.fromCharCode(CupertinoIcons
-                                            .clear_thick.codePoint),
-                                        style: TextStyle(
-                                          inherit: false,
-                                          color: Colors.red,
-                                          fontSize: 18.0,
-                                          fontWeight: FontWeight.bold,
-                                          fontFamily: CupertinoIcons
-                                              .clear_thick.fontFamily,
-                                          package: CupertinoIcons
-                                              .clear_thick.fontPackage,
-                                        ),
+                                    child: Container(
+                                      padding:
+                                          EdgeInsets.only(left: 6, bottom: 4),
+                                      child: Icon(
+                                        Icons.close,
+                                        color: Color(0xFFFF5959),
                                       ),
                                     )),
                               )
