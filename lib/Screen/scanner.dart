@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'add_guest.dart';
+
 class Scanner extends StatefulWidget {
   const Scanner({Key? key}) : super(key: key);
 
@@ -56,10 +58,14 @@ class _ScannerState extends State<Scanner> {
                   textStyle: TextStyle(color: Color(0xFFFFFFFF), fontSize: 12),
                 ),
               ),
-              Container(
-                  margin: EdgeInsets.only(top: 130, bottom: 72),
-                  height: 50,
-                  child: Image.asset("assets/images/add_guest.png"))
+              InkWell(onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>AddGuest()));
+              },
+                child: Container(
+                    margin: EdgeInsets.only(top: 130, bottom: 72),
+                    height: 50,
+                    child: Image.asset("assets/images/add_guest.png")),
+              )
             ],
           ),
         ),
